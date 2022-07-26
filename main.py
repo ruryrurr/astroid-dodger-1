@@ -2,6 +2,7 @@ import pygame
 import random
 import sys
 from pygame.locals import*
+from ship import*
 pygame.init()
 screen_info = pygame.display.Info()
 
@@ -15,6 +16,7 @@ clock = pygame.time.Clock()
 num_level = 4
 current_level = 1
 astroid_count = 3
+player = Ship((20,200))
 
 
 def main():
@@ -23,6 +25,10 @@ def main():
   for event in pygame.event.get():
     if event.type == QUIT:
       sys.exit()
+    screen.fill(0,127,245)
+    screen.blit(player.image, player.rect)
+    pygame.display.flip()
+
 
 if __name__ == "__main__":
   main()
