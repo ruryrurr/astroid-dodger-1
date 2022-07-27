@@ -18,7 +18,16 @@ num_level = 4
 current_level = 1
 astroid_count = 3
 Player = Ship((20, 200))
+Astroids = pygame.sprite.Clock()
 
+def init():
+  global astroid_count, Astroids
+  Player.reset((20, 200))
+  Astroids.empty()
+  astroid_count+=3
+  Astroids.add(Asteroid((random.randint(50, width - 50), random.randint(50, height - 50)), random.randint(15, 60))
+)
+  
 
 def main():
   global current_level, num_level  
@@ -46,12 +55,25 @@ def main():
           Player.speed[1]=0
         if event.key==pygame.K_DOWN:
           Player.speed[1]=0
+        if pygame.sprite.spritecollide(Player, Astroid)
+
             
     Player.update()
     screen.fill((30,0,30))
     screen.blit(Player.image, Player.rect)
     pygame.display.flip()
-
+    Astroids.update()
+    Astroids.draw(screen)
+    get_hit = pygame.sprit.collide(Players,Astroids, False)
+    if player.checkReset(width):
+      init()
+    elif get_hit
+      Player.checkReset(20,200)
+      
 
 if __name__ == "__main__":
     main()
+
+
+    
+  
